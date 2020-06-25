@@ -1,8 +1,7 @@
 const initialState = {
     voteremail: "",
-    voterpassword: "",
     votername: "",
-    isLoggedin: Boolean(localStorage.getItem('loggedin')),
+    loggedin: Boolean(localStorage.getItem('loggedin')),
     isInitiated: false,
     candidates : [],
 }

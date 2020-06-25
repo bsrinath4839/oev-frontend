@@ -7,11 +7,13 @@ function Header(props) {
             <div className="header">
                 OEV
             </div>
+            <hr />
             <div className="topnav">
                 <Link to="/" className="headerlink" >HOME</Link>
                 <Link to="/voter" className="headerlink" >VOTER</Link>
                 <Link to="/candidate" className="headerlink" >CANDIDATE</Link>
             </div>
+            <hr />
         </div>
     );
 }

@@ -51,6 +51,7 @@ class Login extends React.Component {
             return (
                 <div className="adminLoginDiv">
                     <table>
+                        <caption>ADMIN LOGIN</caption>
                         <tbody>
                             <tr>
                                 <td>

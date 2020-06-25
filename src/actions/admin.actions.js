@@ -1,5 +1,4 @@
-//import { ADMIN_LOGIN_SUCCESS, ADMIN_LOGIN_FAILED, ADMIN_LOGIN_INITIATED }
-
+import { ADMIN_LOGIN_FAILED, ADMIN_LOGIN_SUCCESS } from "./types";
 import config from "../config";
 
 
@@ -21,18 +20,18 @@ export const login = (adminemail, adminpassword) => async (dispatch) => {
         body: JSON.stringify(body)
     }).then((response) => {
         console.log(response);
-        
-        if (response.ok) {           
+
+        if (response.ok) {
             return response.json();
         } else {
             dispatch({
-                type: "ADMIN_LOGIN_FAILED",
-                error : "LOGIN FAILED",
+                type: ADMIN_LOGIN_FAILED,
+                error: "LOGIN FAILED - CHECK YOUR CREDENTIALS",
             })
         }
     }).then((data) => {
         dispatch({
-            type: "ADMIN_LOGIN_SUCCESS",
+            type: ADMIN_LOGIN_SUCCESS,
             payload: data.admin
         })
     }).catch((err) => {

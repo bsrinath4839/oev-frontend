@@ -44,8 +44,13 @@ function App(props) {
           <Route exact path="/candidate/nominate" component={CandidatesNominate} />
 
         </div>
+        <hr />
         <div className="footer">
-          &copy; <a href="http://github.com/bsrinath4839" target="_blank" rel="noopener noreferrer">bsrinath4839</a>
+          <hr />
+          <div>
+            &copy; <a href="http://github.com/bsrinath4839" target="_blank" rel="noopener noreferrer">bsrinath4839</a>
+          </div>
+          <hr />
         </div>
       </div>
     </Router>
