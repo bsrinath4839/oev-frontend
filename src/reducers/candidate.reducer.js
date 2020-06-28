@@ -1,18 +1,27 @@
 import {
     CANDIDATE_LOGIN_FAILED,
-    CANDIDATE_LOGIN_SUCCESS
+    CANDIDATE_LOGIN_SUCCESS,
+    CANDIDATE_REGISTER_SUCCESS,
+    CANDIDATE_LOGOUT_FAILED,
+    NOMINATE_CANDIDATE_SUCCESS,
+    NOMINATE_CANDIDATE_FAILED,
+    CANDIDATE_LOGOUT_SUCCESS,
+    CANDIDATE_REGISTER_FAILED
 } from "../actions/types";
 
 const initialState = {
-    _id: "",
-    candidateemail: "",
-    candidatename: "",
-    loggedin: Boolean(localStorage.getItem('candidateloggedin')),
+    candidateemail: localStorage.getItem('candidateemail'),
+    candidatename: localStorage.getItem('candidatename'),
+    candidateid: localStorage.getItem('candidateid'),
+    loggedin: localStorage.getItem('candidateloggedin'),
     isInitiated: false,
-    error: ""
+    isregisterd: false,
+    isnominated: localStorage.getItem('isnominated'),
+    error: "",
 }
 
 const candidateReducer = (state = initialState, action) => {
+
     switch (action.type) {
         case CANDIDATE_LOGIN_FAILED: {
             state = {
@@ -24,10 +33,69 @@ const candidateReducer = (state = initialState, action) => {
             return state;
         }
         case CANDIDATE_LOGIN_SUCCESS: {
-            localStorage.setItem('candidateemail', action.payload.email);
-            localStorage.setItem('candidatename', action.payload.name);
-            localStorage.setItem('candidateloggedin', action.payload.loggedin);
-            return Object.assign({}, state, action.payload)
+            console.log("payload",action.payload);
+
+            localStorage.setItem('candidateemail', action.payload.candidateemail);
+            localStorage.setItem('candidatename', action.payload.candidatename);
+            localStorage.setItem('candidateid', action.payload.candidateid);
+            localStorage.setItem('candidateloggedin', true);
+            localStorage.setItem('isnominated', action.payload.isnominated);
+
+            state = {
+                candidateemail: localStorage.getItem('candidateemail'),
+                candidatename: localStorage.getItem('candidatename'),
+                candidateid: localStorage.getItem('candidateid'),
+                loggedin: true,
+                isnominated: action.payload.isnominated,
+                error : ""
+            }
+
+            console.log("state : ", state);
+            return state;
+        }
+        case CANDIDATE_REGISTER_SUCCESS: {
+            state = {
+                ...state,
+                isregisterd: true,
+                error: ""
+            }
+            return state;
+        }
+        case CANDIDATE_REGISTER_FAILED: {
+            state = {
+                ...state,
+                isregisterd: false,
+                error: action.error,
+            }
+            return state;
+        }
+        case NOMINATE_CANDIDATE_SUCCESS: {
+            state = {
+                ...state,
+                isnominated: true,
+                error: ""
+            }
+            return state;
+        }
+        case NOMINATE_CANDIDATE_FAILED: {
+            state = {
+                ...state,
+                isnominated: false,
+                error: action.error,
+            }
+            return state;
+        }
+        case CANDIDATE_LOGOUT_FAILED: {
+            return state;
+        }
+        case CANDIDATE_LOGOUT_SUCCESS: {
+            localStorage.clear();
+            state = {
+                ...state,
+                loggedin: false,
+                error: action.error,
+            }
+            return state;
         }
         default: {
             return state;

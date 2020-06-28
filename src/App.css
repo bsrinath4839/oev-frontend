@@ -35,18 +35,23 @@
 }
 
 .footer {
-  background-color: #f1f1f1;
+  background-color: #333;
   padding         : 10px;
   text-align      : center;
-  position        : fixed;
+  position        : relative;
   bottom          : 0%;
   text-align      : center;
   width           : 100%;
+  color           : white;
+  font-weight     : bold;
+  font-size       : large;
 }
 
 .footer a {
-  color          : black;
+  color          : white;
   text-decoration: none;
+  font-weight    : bold;
+  font-size      : large;
 }
 
 .admin .adminLinks {
@@ -141,4 +146,46 @@ button {
   background-color: #333;
   text-decoration : none;
   padding         : 1%;
+}
+
+.candidateregisterDiv {
+  display         : block;
+  color           : #ddd;
+  background-color: #333;
+  text-decoration : none;
+  padding         : 1%;
+}
+
+.nominateDiv {
+  display         : block;
+  color           : #ddd;
+  background-color: #333;
+  text-decoration : none;
+  padding         : 1%;
+}
+
+.loadResultsBtn {
+  display         : block;
+  box-sizing      : border-box;
+  background-color: navy;
+  border          : #ddd;
+  color           : white;
+  font-weight     : bold;
+  padding-top     : 1%;
+  padding-bottom  : 1%;
+  font-size       : large;
+}
+
+.logo {
+  width: 100%;
+}
+
+.whatsapplogo {
+  height: 14px;
+  width : 14px;
+}
+
+.logoslinks {
+  float       : right;
+  margin-right: 10%;
 }

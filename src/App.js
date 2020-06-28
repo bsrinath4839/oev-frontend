@@ -1,5 +1,8 @@
 import React from 'react';
 import './App.css';
+import logo1 from "./logo1.png"
+import logo2 from "./logo2.png"
+import whatsapplogo from './whatsapplogo.png'
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import Header from "./layouts";
@@ -19,6 +22,7 @@ import Candidate from "./layouts/Candidate";
 import CandidateRegister from "./layouts/Candidate/register";
 import CandidateLogin from "./layouts/Candidate/login";
 import CandidatesNominate from "./layouts/Candidate/nominate";
+import CandidateLogout from "./layouts/Candidate/logout";
 
 function App(props) {
   return (
@@ -41,14 +45,23 @@ function App(props) {
           <Route exact path="/candidate" component={Candidate} />
           <Route exact path="/candidate/register" component={CandidateRegister} />
           <Route exact path="/candidate/login" component={CandidateLogin} />
+          <Route exact path="/candidate/logout" component={CandidateLogout} />
           <Route exact path="/candidate/nominate" component={CandidatesNominate} />
 
         </div>
-        <hr />
+        <div className="logosDiv">
+          <img src={logo1} className="logo" alt={logo1} />
+          <hr />
+          <img src={logo2} className="logo" alt={logo2} />
+          <hr />
+        </div>
         <div className="footer">
           <hr />
-          <div>
-            &copy; <a href="http://github.com/bsrinath4839" target="_blank" rel="noopener noreferrer">bsrinath4839</a>
+            &copy; <a href="http://github.com/bsrinath4839" target="_blank" rel="nofollow noopener noreferrer" >bsrinath4839</a>
+          <div className="logoslinks">
+          <a href="https://api.whatsapp.com/send?phone=+918096873682&text='Hi,%20I%20Need%20Help'" target="_blank" className="whatsapplogo" rel="nofollow noopener noreferrer">
+              <img src={whatsapplogo} className="whatsapplogo" alt={whatsapplogo} />
+            </a>
           </div>
           <hr />
         </div>

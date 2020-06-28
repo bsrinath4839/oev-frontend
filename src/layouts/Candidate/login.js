@@ -14,10 +14,9 @@ class Login extends React.Component {
         msg: ""
     }
 
-
     static propTypes = {
         login: PropTypes.func.isRequired,
-        loggedin: PropTypes.bool.isRequired,
+        loggedin: PropTypes.bool,
         error: PropTypes.string.isRequired,
 
     }
@@ -55,10 +54,11 @@ class Login extends React.Component {
     }
 
     render() {
-        if (this.state.isLoggedin) {
-            return (
-                <Redirect to="/candidate" />
-            );
+        //console.log("propslog", this.props.loggedin);
+       // console.log("isNominated", this.props.isNominated);
+
+        if (this.props.loggedin === true || this.props.loggedin === "true") {
+            return <Redirect to="/candidate" />
         } else {
             return (
                 <div className="candidatelogindiv">
@@ -121,7 +121,7 @@ class Login extends React.Component {
 const mapStateToProps = (state) => ({
     loggedin: state.candidate.loggedin,
     error: state.candidate.error,
-
+    isNominated : state.candidate.isNominated,
 })
 
 export default connect(mapStateToProps, { login })(Login);
