@@ -103,6 +103,11 @@ class Login extends React.Component {
                                         <p>{this.state.msg}</p>
                                     </th>
                                 </tr>
+                                <tr>
+                                    <th colSpan="3">
+                                        <p>{this.props.error}</p>
+                                    </th>
+                                </tr>
                             </tbody>
                         </table>
                     </form>
@@ -114,7 +119,8 @@ class Login extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-    loggedin: state.voter.loggedin
+    loggedin: state.voter.loggedin,
+    error : state.voter.error,
 })
 
 export default connect(mapStateToProps, { login })(Login);

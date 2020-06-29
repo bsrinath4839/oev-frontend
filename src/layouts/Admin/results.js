@@ -16,14 +16,19 @@ class Results extends React.Component {
         results: PropTypes.func.isRequired,
     }
 
-    getResults() {       
+    getResults() {
         this.props.results();
     }
 
     render() {
         if (this.props.resultsLoded) {
             return (
-                this.props.votingResults
+                this.props.votingResults.map((result) => (
+                    <div>
+                        <p>{result.candidateid}</p>
+                        <p>{result.count}</p>
+                    </div>
+                ))
             )
         }
         return (

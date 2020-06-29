@@ -79,6 +79,9 @@ export const register = (candidateid, candidateemail, candidatename, candidatepa
         console.log(response);
 
         if (response.ok) {
+            dispatch({
+                type: CANDIDATE_REGISTER_SUCCESS
+            })
             return response.json()
         } else {
             dispatch({
@@ -86,12 +89,6 @@ export const register = (candidateid, candidateemail, candidatename, candidatepa
                 error: "REGISTER FAILED - YOU MIGHT BE ALREADY EXIST"
             })
         }
-    }).then((data) => {
-        console.log(data);
-
-        dispatch({
-            type: CANDIDATE_REGISTER_SUCCESS
-        })
     }).catch((err) => {
         console.log(err);
         dispatch({
@@ -113,6 +110,7 @@ export const nominate = (place, position) => (dispatch, getState) => {
     let body = {
         "candidateemail": state.candidateemail,
         "candidateid": state.candidateid,
+        "candidatename": state.candidatename,
         "place": place,
         "position": position,
     }

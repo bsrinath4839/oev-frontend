@@ -156,10 +156,42 @@ button {
   padding         : 1%;
 }
 
+.candidatesDiv {
+  display         : block;
+  color           : #ddd;
+  background-color: #333;
+  text-decoration : none;
+  padding         : 1%;
+}
+
 .nominateDiv {
   display         : block;
   color           : #ddd;
   background-color: #333;
+  text-decoration : none;
+  padding         : 1%;
+}
+
+.voteDiv {
+  display         : block;
+  color           : #ddd;
+  background-color: #333;
+  text-decoration : none;
+  padding         : 1%;
+}
+
+a{
+  display         : block;
+  color           : #ddd;
+  background-color: #333;
+  text-decoration : none;
+  padding         : 1%;
+}
+
+a:hover{
+  display         : block;
+  color           : #333;
+  background-color: #ddd;
   text-decoration : none;
   padding         : 1%;
 }
